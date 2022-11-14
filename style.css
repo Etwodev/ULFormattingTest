@@ -1,0 +1,200 @@
+body {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  overflow: hidden;
+}
+
+.image {
+  /* display: block; */
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  transform: scale(15%);
+}
+
+.cube {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  position: relative;
+  z-index: 5;
+  transform: translate(518%, 5000%);
+}
+
+ul {
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  transform: scale(150%, 100%) skew(7deg);
+}
+
+li {
+  pointer-events: auto;
+  position: relative;
+  float: right;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  list-style: none;
+  height: 100%;
+  /* background-color: mediumaquamarine; */
+  transition: transform 1.0s ease-out;
+}
+
+li:first-child:nth-last-child(n):hover, li:first-child:nth-last-child(n) ~ li:hover {
+  transform: scale(150%, 100%);
+}
+
+ul:hover ~ .image {
+  transition: filter 1.0s ease-out;
+  opacity: 100%;
+  -webkit-filter: invert(1) brightness(150%);
+  filter: invert(1) brightness(150%);
+}
+
+li:first-child:nth-last-child(n):not(:hover), li:first-child:nth-last-child(n) ~ li:not(:hover) {
+  background: white;
+  transform: scale(50%, 100%);
+}
+
+/* one item */
+li:first-child:nth-last-child(1) {
+  width: 100%;
+  background: linear-gradient(90deg, #4b6bb7 0%, #182848 100%);
+}
+
+body.A1 > img.image.left {
+  opacity: 0%;
+}
+
+body.A1 > img.image.middle {
+  opacity: 100%;
+  transform: scale(25%)
+}
+
+body.A1 > img.image.right {
+  opacity: 0%;
+}
+
+/* two items */
+li:first-child:nth-last-child(2),
+li:first-child:nth-last-child(2) ~ li {
+  width: 50%;
+  background: linear-gradient(90deg, #00c8ff84 0%, #92fe9d84 100%);
+}
+
+body.A2 > img.image.left {
+  opacity: 100%;
+  transform: translateX(-35%) scale(25%);
+}
+
+body.A2 > img.image.middle {
+  opacity: 0%;
+}
+
+body.A2 > img.image.right {
+  opacity: 100%;
+  transform: translateX(35%) scale(25%);
+}
+
+/* three items */
+li:first-child:nth-last-child(3),
+li:first-child:nth-last-child(3) ~ li {
+  width: 33.3333%;
+  background: linear-gradient(90deg, #fc46e130 0%, #3f58fb72 100%);
+}
+
+body.A3 > img.image.left {
+  opacity: 100%;
+  transform: translateX(-44%) scale(10%);
+}
+
+body.A3 > img.image.middle {
+  opacity: 100%;
+}
+
+body.A3 > img.image.right {
+  opacity: 100%;
+  transform: translateX(44%) scale(10%);
+}
+
+/* four items */
+li:first-child:nth-last-child(4),
+li:first-child:nth-last-child(4) ~ li {
+  width: 25%;
+  background: linear-gradient(90deg, #3f2b9678 0%, #a8c1ff7b 100%);
+}
+
+body.A4 > img.image.left {
+  opacity: 100%;
+  transform: translateX(-18.2%) scale(15%);
+}
+
+body.A4 > img.image.middle {
+  opacity: 0%;
+}
+
+body.A4 > img.image.right {
+  opacity: 100%;
+  transform: translateX(19%) scale(15%);
+}
+
+/* five items */
+li:first-child:nth-last-child(5),
+li:first-child:nth-last-child(5) ~ li {
+  width: 20%;
+  background: linear-gradient(90deg, #fdbb2d74 0%, #22C1C3 100%);
+}
+
+body.A5 > img.image.left {
+  opacity: 100%;
+  transform: translateX(-29.2%) scale(15%);
+}
+
+body.A5 > img.image.middle {
+  opacity: 100%;
+}
+
+body.A5 > img.image.right {
+  opacity: 100%;
+  transform: translateX(30.5%) scale(15%);
+}
+
+@keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+
+.stars, .twinkling {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.stars {
+  background:#000 url(stars.png) repeat top center;
+  z-index:0;
+}
+
+.twinkling{
+  background:transparent url(twinkling.png) repeat top center;
+  z-index:1;
+  animation:move-twink-back 200s linear infinite;
+}
+

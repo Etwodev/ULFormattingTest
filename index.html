@@ -1,0 +1,31 @@
+<head>
+  <title>Starry Night</title>
+  <script>
+    function updateSlider(slideAmount) {
+      document.getElementById('root').className = "A" + slideAmount;
+      var list = document.getElementById('list');
+      list.innerHTML = ""
+      for(var i = 0; i < slideAmount; i++) {
+        list.appendChild(document.createElement("li"));
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body id="root" class="A4">
+  <ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <div class="cube">
+    <input id="slide" type="range" min="1" max="5" step="1" value="4" onchange="updateSlider(this.value)">
+  </div>
+  <img src="one.svg" class="image middle">
+  <img src="two.svg" class="image left">
+  <img src="three.svg" class="image right">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+</body>
